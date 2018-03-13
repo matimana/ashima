@@ -1,0 +1,5 @@
+---
+ user_info:
+        - {name: 'james', firstname: 'James', lastname: 'Jockey', password: 'redhat@123456'}
+        - {name: 'bill', firstname: 'Bill', lastname: 'Gates', password: 'redhat@123456'}
+

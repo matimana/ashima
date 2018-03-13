@@ -1,0 +1,23 @@
+---
+# tasks file for win_service_config
+ - include_vars: ssh_var.yml
+ - name: install packages using win_chocolatey
+   win_chocolatey:
+        name: "{{ item }}"
+        params: "{{ parameters }}"
+        state: present
+   with_items:
+        - "{{ package_name }}"
+
+ - name: start the service and also enable it
+   win_service:
+        name: "{{ service_name }}"
+        state: started
+        enable: yes
+
+ - name: give firewall permissions
+   win_firewall_rule:
+        name: "{{ service_name }}"
+        localport: "{{ local_port }}"
+        protocol: "{{ protocol_name }}"
+        enabled: yes

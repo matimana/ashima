@@ -1,0 +1,5 @@
+---
+ - hosts: windows
+   become: true
+   roles:
+        - win_service_config

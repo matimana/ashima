@@ -1,0 +1,20 @@
+---
+# tasks file for win_ad_install
+ - name: install AD-Domain-Services feature
+   win_feature:
+        name: AD-Domain-Services
+        state: present
+
+ - name: set up the AD controller
+   win_domain:
+        dns_domain_name: ad1.7172.example.opentlc.com
+        safe_mode_password: 'jVMijRwLbI02gFCo2xkjlZ9lxEA7bm7zgg=='
+   register: output
+
+ - win_reboot:
+   when: output.reboot_required
+
+ 
+    
+
+ 
